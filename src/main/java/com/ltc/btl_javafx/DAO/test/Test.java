@@ -9,8 +9,8 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
-public class Test extends Application {
-    
+public class Test /* extends Application */ {
+    /*
     public Test() {
     }
 
@@ -38,5 +38,9 @@ public class Test extends Application {
 
     public static void main(String[] args) {
         launch(args);
+    }
+    */
+    public static void main(String[] args) {
+        Main.main(args);
     }
 }
