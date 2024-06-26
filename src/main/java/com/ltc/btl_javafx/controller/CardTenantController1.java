@@ -280,7 +280,7 @@ public class CardTenantController1 implements Initializable {
         String CCCD = this.IDCitizenMemberTextField.getText();
         String SDT = this.phoneNumMemberTextField.getText();
         LocalDateMonthY time = new LocalDateMonthY();
-        int year = time.getYearNow() - this.BirthTenantDatePicker.getValue().getYear();
+        int year = time.getYearNow() - this.birthMemberDatePicker.getValue().getYear();
         int month = time.getMonthNow() - this.BirthTenantDatePicker.getValue().getMonthValue();
         int day = time.getDayNow() - this.BirthTenantDatePicker.getValue().getDayOfMonth();
         if (this.MemberNameTextField.getText().isEmpty() || (!this.MemberMaleRadioButton.isSelected() && !this.MemberFemaleRadionButton.isSelected()) || this.birthMemberDatePicker.getValue() == null || this.placeMemberTextField.getText().isEmpty()
