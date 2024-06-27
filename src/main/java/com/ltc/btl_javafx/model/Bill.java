@@ -99,4 +99,11 @@ public class Bill {
     public void setBillPrice(String billPrice) {
         this.billPrice = billPrice;
     }
+
+    @Override
+    public String toString() {
+        return "Bill{" + "billID=" + billID + ", accountID=" + accountID + ", HomeTownID=" + HomeTownID + ", RoomID=" + RoomID + ", TenantID=" + TenantID + ", electricNumber=" + electricNumber + ", invoiceDate=" + invoiceDate + ", billPrice=" + billPrice + '}';
+    }
+    
+    
 }

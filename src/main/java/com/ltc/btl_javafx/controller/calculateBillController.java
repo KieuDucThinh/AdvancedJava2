@@ -30,6 +30,7 @@ import javafx.scene.layout.GridPane;
 import com.ltc.btl_javafx.model.Bill;
 import com.ltc.btl_javafx.model.HomeTown;
 import com.ltc.btl_javafx.model.Room;
+import com.ltc.btl_javafx.model.Tenant;
 
 public class calculateBillController implements Initializable {
     @FXML
@@ -125,7 +126,7 @@ public class calculateBillController implements Initializable {
             Support.NoticeAlert(AlertType.ERROR, "THÔNG BÁO", (String)null, "Vui lòng chọn đầy đủ thông tin !");
         } else {
             String tenantID = TenantFunctionImpl.getInstance().selectTenantByMaP(/*(String)this.HomeTownChoiceBox.getValue(),*/ (String)this.roomChoiceBox.getValue()).get(0).getTenantID();
-            this.bill = new Bill(Support.IDAccount, (String)this.HomeTownChoiceBox.getValue(), (String)this.roomChoiceBox.getValue(), tenantID, Integer.parseInt(this.electricNumberTextField.getText()), (LocalDate)this.invoiceDatePicker.getValue(), this.price);
+            this.bill = new Bill((int)(Math.random()*10000), Support.IDAccount, (String)this.HomeTownChoiceBox.getValue(), (String)this.roomChoiceBox.getValue(), tenantID, Integer.parseInt(this.electricNumberTextField.getText()), (LocalDate)this.invoiceDatePicker.getValue(), this.price);
             Support.billList.add(this.bill);
             DAO_Bill.getInstance().insertData(this.bill, "", "");
             checkaddBill = true;

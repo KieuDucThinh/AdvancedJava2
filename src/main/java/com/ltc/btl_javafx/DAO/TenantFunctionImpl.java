@@ -499,11 +499,10 @@ public class TenantFunctionImpl implements TenantFunction {
             pre.setString(4, maP);
             
             ResultSet rs = pre.executeQuery();
-
             if (rs != null) {
                 while (rs.next()) {
                     item = new Tenant();
-//                    item.setTenantID(rs.getString("MaK"));
+                    item.setTenantID(rs.getString("MaK"));
 //                    item.setName(rs.getString("TenK"));
 //                    item.setSex(rs.getString("GioiTinh"));
 //                    localDate = rs.getDate("NgaySinh").toLocalDate();

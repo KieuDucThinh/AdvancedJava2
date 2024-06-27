@@ -39,18 +39,19 @@ public class DAO_Bill implements DAOInterface<Bill> {
     public void insertData(Bill t, String s, String s1) {
         try {
             this.connection = ConnectionToDatabase.getConnectionDB();
-            String query1 = "INSERT INTO hoadon (ID, MaT, MaP, MaK, SoDien, NgayXuatHD, TongTien) VALUES(?, ?, ?, ?, ?, ?, ?)";
+            String query1 = "INSERT INTO hoadon (MaHD, ID, MaT, MaP, MaK, SoDien, NgayXuatHD, TongTien) VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
             String query2 = "INSERT INTO thongkehoadon (NgayXuatHD, TongTien) VALUES(?, ?)";
 
             try {
                 this.preparedStatement = this.connection.prepareStatement(query1);
-                this.preparedStatement.setString(1, t.getAccountID());
-                this.preparedStatement.setString(2, t.getHomeTownID());
-                this.preparedStatement.setString(3, t.getRoomID());
-                this.preparedStatement.setString(4, t.getTenantID());
-                this.preparedStatement.setInt(5, t.getElectricNumber());
-                this.preparedStatement.setDate(6, Date.valueOf(t.getInvoiceDate()));
-                this.preparedStatement.setBigDecimal(7, new BigDecimal(t.getBillPrice()));
+                this.preparedStatement.setInt(1, t.getBillID());
+                this.preparedStatement.setString(2, t.getAccountID());
+                this.preparedStatement.setString(3, t.getHomeTownID());
+                this.preparedStatement.setString(4, t.getRoomID());
+                this.preparedStatement.setString(5, t.getTenantID());
+                this.preparedStatement.setInt(6, t.getElectricNumber());
+                this.preparedStatement.setDate(7, Date.valueOf(t.getInvoiceDate()));
+                this.preparedStatement.setBigDecimal(8, new BigDecimal(t.getBillPrice()));
                 this.preparedStatement.execute();
                 this.preparedStatement = this.connection.prepareStatement(query2);
                 this.preparedStatement.setDate(1, Date.valueOf(t.getInvoiceDate()));
